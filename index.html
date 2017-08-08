@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Monticello Group Fitness Schedule</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <!--[if lt IE 8]>
+            <style>
+                legend {
+                    display: block;
+                    padding: 0;
+                    padding-top: 30px;
+                    font-weight: bold;
+                    font-size: 1.25em;
+                    color: #ffd98d;
+                    margin: 0 auto;
+                }
+            </style>
+        <![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=no">
+        
+        
+    </head>
+    <body>
+        <div class="nav">
+			 <ul>
+                <li id="monTab" title="Monday">Monday</li>
+                <li id="tueTab" title="Tuesday">Tuesday</li>
+                <li id="wedTab" title="Wednesday">Wednesday</li>
+				<li id="thuTab" title="Thursday">Thursday</li>
+				<li id="friTab" title="Friday">Friday</li>
+				<li id="satTab" title="Saturday">Saturday</li>
+				<li id="sunTab" title="Sunday">Sunday</li>
+            </ul>
+        </div>
+
+        <form id="gxScheduleForm" class="group" action="thanks.html" method="POST">
+            <div id="message"></div>
+			<fieldset id="monday" title="">	
+				<div id="prevButton" class="buttonnav prev">prev</div>
+				<div class="buttonnav next">next</div>
+                <table class="dayTableClass">
+					<tr>
+						<th class="colTime">Time</th>
+						<th id="monTable" class="colMon">Monday</th>
+						<th id="tueTable" class="colTue">Tuesday</th>
+						<th id="wedTable" class="colWed">Wednesday</th>
+						<th id="thuTable" class="colThu">Thursday</th>
+						<th id="friTable" class="colFri">Friday</th>
+						<th id="satTable" class="colSat">Saturday</th>
+						<th id="sunTable" class="colSun">Sunday</th>
+					</tr>
+					
+					<tr id="600am">
+						<td class="colTime">6:00 am</td>
+						<td class="colMon"></td>
+						<td class="colTue">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/sunrise-yoga" target="_blank">Sunrise Yoga</a> - <span class="ysClass">YS</span>
+							</div>
+							<div class="instructorClass">Amanda</div>
+						</td>
+						<td class="colWed"></td>
+						<td class="colThu"></td>
+						<td class="colFri"></td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="800am">
+						<td class="colTime">8:00 am</td>
+						<td class="colMon"></td>
+						<td class="colTue"></td>
+						<td class="colWed"></td>
+						<td class="colThu">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/guided-meditation" target="_blank">Guided Meditation</a> - <span class="ysClass">YS</span>
+							</div>
+							<div class="instructorClass">Chuck</div>
+						</td>
+						<td class="colFri"></td>
+						<td class="colSat">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/core-pilates" target="_blank">Core Pilates</a> - <span class="gx1Class">GX 1</span>
+							</div>
+							<div class="instructorClass">Janna</div>
+						</td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="830am">
+						<td class="colTime">8:30 am</td>
+						<td class="colMon"></td>
+						<td class="colTue"></td>
+						<td class="colWed"></td>
+						<td class="colThu"></td>
+						<td class="colFri">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/silver-sneakers-classic" target="_blank">SS Classic</a> - <span class="gx1Class">GX 1</span>
+							</div>
+							<div class="instructorClass">Polly</div>
+						</td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="900am">
+						<td class="colTime">9:00 am</td>
+						<td class="colMon">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/silver-sneakers-classic" target="_blank">SS Classic</a> - <span class="gx1Class">GX 1</span> 
+							</div> 
+							<div class="instructorClass">Polly</div> <br/>
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/barre-blend" target="_blank">BARRE Blend 45</a> - <span class="ysClass">YS</span>
+							</div> 
+							<div class="instructorClass">Christine</div>
+						</td>
+						<td class="colTue">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/tbc" target="_blank">TBC</a> - <span class="gx1Class">GX 1</span>
+							</div>
+							<div class="instructorClass">Cari</div>
+						</td>
+						<td class="colWed">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/silver-fit" target="_blank">Silver &amp; Fit</a> - <span class="gx1Class">GX 1</span>
+							</div>
+							<div class="instructorClass">Michelle</div> <br/>
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/core-pilates" target="_blank">Core Pilates</a> - <span class="ysClass">YS</span>
+							</div>
+							<div class="instructorClass">Mary Ellen</div> <br/>
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/aqua-fit" target="_blank">Aqua Fit</a> - <span class="plClass">PL</span>
+							</div>
+							<div class="instructorClass">Polly</div>
+						</td>
+						<td class="colThu">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/piyo-live" target="_blank">PiYo Live 30&reg;</a> - <span class="gx1Class">GX 1</span>
+							</div>
+							<div class="instructorClass">Tami</div>
+						</td>
+						<td class="colFri"></td>
+						<td class="colSat">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/body-flex" target="_blank">Body Flex</a> - <span class="gx1Class">GX 1</span>
+							</div>
+							<div class="instructorClass">Janna</div>
+						</td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="915am">
+						<td class="colTime">9:15 am</td>
+						<td class="colMon"></td>
+						<td class="colTue">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/rejuvenate-yoga" target="_blank">Rejuvenate</a> - <span class="ysClass">YS</span>
+							</div> 
+							<div class="instructorClass">Karen</div>
+						</td>
+						<td class="colWed"></td>
+						<td class="colThu">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/rejuvenate-yoga" target="_blank">Rejuvenate</a> - <span class="ysClass">YS</span>
+							</div> 
+							<div class="instructorClass">Karen</div>
+						</td>
+						<td class="colFri"></td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="930am">
+						<td class="colTime">9:30 am</td>
+						<td class="colMon"></td>
+						<td class="colTue"></td>
+						<td class="colWed"></td>
+						<td class="colThu"></td>
+						<td class="colFri">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/step" target="_blank">Step</a> - <span class="gx1Class">GX 1</span>
+							</div> 
+							<div class="instructorClass">Denise</div>
+						</td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="945am">
+						<td class="colTime">9:45 am</td>
+						<td class="colMon"></td>
+						<td class="colTue"></td>
+						<td class="colWed"></td>
+						<td class="colThu">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/body-flex" target="_blank">Body Flex</a> - <span class="gx1Class">GX 1</span>
+							</div> 
+							<div class="instructorClass">Tami</div>
+						</td>
+						<td class="colFri"></td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="1000am">
+						<td class="colTime">10:00 am</td>
+						<td class="colMon">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/hatha-yoga" target="_blank">Hatha Yoga 45</a> - <span class="ysClass">YS</span> 
+							</div> 
+							<div class="instructorClass">Christine</div>
+						</td>
+						<td class="colTue">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/dance-jam" target="_blank">Dance Jam</a> - <span class="gx1Class">GX 1</span>
+							</div> 
+							<div class="instructorClass">Cari</div></td>
+						<td class="colWed">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/step" target="_blank">Step</a> - <span class="gx1Class">GX 1</span>
+							</div> 
+							<div class="instructorClass">Mary Ellen</div>
+						</td>
+						<td class="colThu"></td>
+						<td class="colFri"></td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="1015am">
+						<td  class="colTime">10:15 am</td>
+						<td class="colMon"></td>
+						<td class="colTue"></td>
+						<td class="colWed"></td>
+						<td class="colThu"></td>
+						<td class="colFri">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/hatha-yoga" target="_blank">Hatha Yoga</a> - <span class="ysClass">YS</span> 
+							</div> 
+							<div class="instructorClass">Geneva</div>
+						</td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="1100am">
+						<td class="colTime">11:00 am</td>
+						<td class="colMon"></td>
+							
+						
+						<td class="colTue">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/good-day-yoga-1-2" target="_blank">Good Day Yoga</a> - <span class="ysClass">YS</span> 
+							</div> 
+							<div class="instructorClass">Diane</div>
+						</td>
+						<td class="colWed"></td>
+						<td class="colThu">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/good-day-yoga-1-2" target="_blank">Good Day Yoga</a> - <span class="ysClass">YS</span> 
+							</div> 
+							<div class="instructorClass">Diane</div>
+						</td>
+						<td class="colFri"></td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="500pm">
+						<td class="colTime">5:00 pm</td>
+						<td class="colMon"></td>
+						<td class="colTue"></td>
+						<td class="colWed"></td>
+						<td class="colThu"></td>
+						<td class="colFri"></td>
+						<td class="colSat"></td>
+						<td class="colSun">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/hatha-yoga" target="_blank">Hatha Yoga</a> - <span class="ysClass">YS</span> 
+							</div> 
+							<div class="instructorClass">Geneva</div>
+						</td>
+					</tr>
+					
+					<tr id="515pm">
+						<td  class="colTime">5:15 pm</td>
+						<td class="colMon">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/yoga-sculpt" target="_blank">Yoga Sculpt</a> - <span class="ysClass">YS</span> 
+							</div> 
+							<div class="instructorClass">Christine St</div> <br/>
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/tbc" target="_blank">TBC</a> - <span class="gx1Class">GX 1</span> 
+							</div> 
+							<div class="instructorClass">Kevin</div> 
+						</td>
+						<td class="colTue">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/body-flex" target="_blank">Body Flex</a> - <span class="gx1Class">GX 1</span> 
+							</div> 
+							<div class="instructorClass">Tami</div>
+						</td>
+						<td class="colWed">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/piyo-live" target="_blank">PiYo Live&reg;</a> - <span class="gx1Class">GX 1</span> 
+							</div> 
+							<div class="instructorClass">Cheryl</div> 
+						</td>
+						<td class="colThu">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/body-flex" target="_blank">Body Flex</a> - <span class="gx1Class">GX 1</span> 
+							</div> 
+							<div class="instructorClass">Kevin</div> 
+						</td>
+						<td class="colFri"></td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="600pm">
+						<td class="colTime">6:00 pm</td>
+						<td class="colMon">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/hatha-yoga" target="_blank">Hatha Yoga</a> - <span class="ysClass">YS</span> 
+							</div> 
+							<div class="instructorClass">Diane</div> 
+						</td>
+						<td class="colTue"></td>
+						<td class="colWed"></td>
+						<td class="colThu"></td>
+						<td class="colFri"></td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="6:15pm">
+						<td class="colTime">6:15 pm</td>
+						<td class="colMon">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/zumba-toning" target="_blank">Zumba Toning&reg;</a> - <span class="gx1Class">GX 1</span> 
+							</div> 
+							<div class="instructorClass">Cheryl</div> 
+						</td>
+						<td class="colTue">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/pound" target="_blank">Pound&reg;</a> - <span class="gx1Class">GX 1</span> 
+							</div> 
+							<div class="instructorClass">Julie</div> 
+						</td>
+						<td class="colWed"></td>
+						<td class="colThu"></td>
+						<td class="colFri"></td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					<tr id="630pm">
+						<td class="colTime">6:30 pm</td>
+						<td class="colMon"></td>
+						<td class="colTue">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/hatha-yoga" target="_blank">Hatha Yoga</a> - <span class="ysClass">YS</span> 
+							</div> 
+							<div class="instructorClass">Doug</div> 
+						</td>
+						<td class="colWed">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/zumba" target="_blank">Zumba&reg;</a> - <span class="gx1Class">GX 1</span> 
+							</div> 
+							<div class="instructorClass">Cheryl</div> 
+						</td>
+						<td class="colThu">
+							<div class="nameClass">
+								<a class="classLink" href="http://www.fitevomn.com/u-jam-fitness" target="_blank">U-Jam&reg;</a> / <a class="classLink" href="http://www.fitevomn.com/zumba" target="_blank">Zumba&reg;</a> - <span class="gx1Class">GX 1</span> 
+							</div> 
+							<div class="instructorClass">Cheryl</div> 
+						</td>
+						<td class="colFri"></td>
+						<td class="colSat"></td>
+						<td class="colSun"></td>
+					</tr>
+					
+					
+				</table>
+               
+            </fieldset>
+            <fieldset id="other" class="hidden" title="Other Info">
+                <legend>Other</legend>
+                <ol>
+                    <li>
+                        <label for="myurl">Website *</label>
+                        <input type="url" name="myurl" id="myurl" required />
+                    </li>
+                    <li>
+                        <label for="mytelephone">Telephone</label>
+                        <input type="tel" name="mytelephone" id="mytelephone" />
+                    </li>
+                    <li class="singleline">
+                        <input type="checkbox" id="subscribeitem" name="subscribe" checked value="yes" />
+                        <label for="subscribeitem">Subscribe to our mailing list?</label>
+                    </li>
+                    <li>
+                        <label for="reference">How did you hear about us?</label>
+                        <select name="reference" id="reference">
+                            <option>Choose...</option>
+                            <option value="friend">A friend</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="twitter">Twitter</option>
+                        </select>
+                    </li>
+                </ol>
+                <div class="buttonnav prev">prev</div>
+                <div class="buttonnav next">next</div>
+            </fieldset>
+            <fieldset id="comments" class="hidden" title="Comments">
+                <legend>Comments</legend>
+                <ol>
+                    <li>
+                        <div class="grouphead">Request Type</div>
+                        <ol>
+                            <li>
+                                <input type="radio" name="requesttype" value="question" id="questionitem" />
+                                <label for="questionitem"> Question </label>                                
+                            </li>
+                            <li>
+                                <input type="radio" name="requesttype" value="comment" id="commentitem" />
+                                <label for="commentitem"> Comment </label>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <label for="commentarea">Comment</label>
+                        <textarea name="commentarea" id="commentarea"> </textarea>
+                    </li>                    
+                </ol>
+                <div class="buttonnav prev">prev</div>
+                <button type="submit">send</button>
+            </fieldset>
+        </form>
+        <div class="freeFormSchedule">
+        	<div id="gxClassSched"></div>
+        </div>
+        <script src="js/script.js" type="text/javascript"></script>
+       	<script id="scheduleTpl" type="text/template">
+       		<ul>
+	       		{{#class}}
+	       			<li>
+	       				<ul>
+	       					<li>{{day}}</li>
+	       					<li>{{time}}</li>
+	       					<li>{{name}}</li>
+	       					<li>{{instructor}}</li>
+	       					<li>{{location}}</li>
+	       					<li><a href="{{link}}">click here for more info</a></li>
+	       				</ul>
+	       			</li>
+	       		{{/class}}
+       		</ul>
+       	</script>
+    </body>
+    
+</html>

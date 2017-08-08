@@ -1,0 +1,708 @@
+{	
+	"gxClasses": {
+		"600am": {
+			"monday": [
+				{
+					"name":"",
+					"location":"",
+					"instructor":"",
+					"classLink":""
+				}
+			],
+			"tuesday": [
+				{
+					"name":"Sunrise Yoga",
+					"location":"YS",
+					"instructor":"Amanda",
+					"classLink":"http://www.fitevomn.com/sunrise-yoga"
+				}
+			],
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"8:00 am": {
+			"monday": [ 
+				{
+					"name":"",
+					"location":"",
+					"instructor":"",
+					"classLink":""
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"Guided Meditation",
+				"location":"YS",
+				"instructor":"Chuck",
+				"classLink":"http://www.fitevomn.com/guided-meditation"
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"Core Pilates",
+				"location":"GX 1",
+				"instructor":"Janna",
+				"classLink":"http://www.fitevomn.com/core-pilates"
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"8:30 am": {
+			"monday": [
+				{
+					"name":"",
+					"location":"",
+					"instructor":"",
+					"classLink":""
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"SS Classic",
+				"location":"GX 1",
+				"instructor":"Polly",
+				"classLink":"http://www.fitevomn.com/silver-sneakers-classic"
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"9:00 am": {
+			"monday": [
+				{
+					"name":"SS Classic",
+					"location":"GX 1",
+					"instructor":"Polly",
+					"classLink":"http://www.fitevomn.com/silver-sneakers-classic"
+				},
+				{
+					"name":"BARRE Blend 45",
+					"location":"YS",
+					"instructor":"Christine",
+					"classLink":"http://www.fitevomn.com/barre-blend"
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"9:15 am": {
+			"monday": [
+				{
+					"name":"",
+					"location":"",
+					"instructor":"",
+					"classLink":""
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"9:30 am": {
+			"monday": [
+				{
+					"name":"",
+					"location":"",
+					"instructor":"",
+					"classLink":""
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"9:45 am": {
+			"monday": [
+				{
+					"name":"",
+					"location":"",
+					"instructor":"",
+					"classLink":""
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"10:00 am": {
+			"monday": [
+				{
+					"name":"Hatha Yoga",
+					"location":"YS",
+					"instructor":"Christine",
+					"classLink":"http://www.fitevomn.com/hatha-yoga"
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"10:15 am": {
+			"monday": [
+				{
+					"name":"",
+					"location":"",
+					"instructor":"",
+					"classLink":""
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"11:00 am": {
+			"monday": [
+				{
+					"name":"",
+					"location":"",
+					"instructor":"",
+					"classLink":""
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"5:00 pm": {
+			"monday": [
+				{
+					"name":"",
+					"location":"",
+					"instructor":"",
+					"classLink":""
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"5:15 pm": {
+			"monday": [
+				{
+					"name":"Yoga Sculpt",
+					"location":"YS",
+					"instructor":"Christine",
+					"classLink":"http://www.fitevomn.com/yoga-sculpt"
+				},
+				{
+					"name":"TBC",
+					"location":"GX 1",
+					"instructor":"Kevin",
+					"classLink":"http://www.fitevomn.com/tbc"
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"6:00 pm": {
+			"monday": [
+				{
+					"name":"Hatha Yoga",
+					"location":"YS",
+					"instructor":"Diane",
+					"classLink":"http://www.fitevomn.com/hatha-yoga"
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"6:15 pm": {
+			"monday": [
+				{
+					"name":"Zumba Toning",
+					"location":"GX 1",
+					"instructor":"Cheryl",
+					"classLink":"http://www.fitevomn.com/zumba-toning"
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		},
+		"6:30 pm": {
+			"monday": [
+				{
+					"name":"",
+					"location":"",
+					"instructor":"",
+					"classLink":""
+				}
+			],
+			"tuesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"wednesday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"thursday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"friday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"saturday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			},
+			"sunday": {
+				"name":"",
+				"location":"",
+				"instructor":"",
+				"classLink":""
+			}
+		}
+	}
+}

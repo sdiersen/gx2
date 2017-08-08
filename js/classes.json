@@ -1,0 +1,44 @@
+{
+	"class": [
+		{
+			"day":"Sunday",
+			"time":"5:00 pm",
+			"name":"Hatha Yoga",
+			"instructor":"Geneva",
+			"location":"YS",
+			"link":"http://www.fitevomn.com/hatha-yoga"
+		},
+		{
+			"day":"Friday",
+			"time":"10:15 am",
+			"name":"Hatha Yoga",
+			"instructor":"Geneva",
+			"location":"YS",
+			"link":"http://www.fitevomn.com/hatha-yoga"
+		},
+		{
+			"day":"Tuesday",
+			"time":"6:30 pm",
+			"name":"Hatha Yoga",
+			"instructor":"Doug",
+			"location":"YS",
+			"link":"http://www.fitevomn.com/hatha-yoga"
+		},
+		{
+			"day":"Monday",
+			"time":"10:00 am",
+			"name":"Hatha Yoga 45",
+			"instructor":"Christine",
+			"location":"YS",
+			"link":"http://www.fitevomn.com/hatha-yoga"
+		},
+		{
+			"day":"Monday",
+			"time":"6:00 pm",
+			"name":"Hatha Yoga",
+			"instructor":"Diane",
+			"location":"YS",
+			"link":"http://www.fitevomn.com/hatha-yoga"
+		}
+	]
+}
