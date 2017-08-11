@@ -3,15 +3,71 @@ DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS classes;
 DROP TABLE IF EXISTS instructors;
 DROP TABLE IF EXISTS locations;
+DROP TABLE IF EXISTS class_levels;
+DROP TABLE IF EXISTS class_types;
+DROP TABLE IF EXISTS class_with_types;
+DROP TABLE IF EXISTS class_with_levels;
+
+CREATE TABLE class_levels (
+ id int(11) NOT NULL AUTO_INCREMENT,
+ name VARCHAR(255) DEFAULT NULL,
+ description text DEFAULT NULL,
+ PRIMARY KEY (id)
+);
+
+INSERT INTO class_levels VALUES 
+ (1, 'beginner', 'New to fitness classes'),
+ (2, 'intermediate', 'Has done fitness classes for a few months'),
+ (3, 'advanced', 'Has been doing fitness classes for years'),
+ (4, 'all', 'This class is suited to all levels of ability');
+
+CREATE TABLE class_types (
+ id int(11) NOT NULL AUTO_INCREMENT,
+ name VARCHAR(255) DEFAULT NULL,
+ description text DEFAULT NULL,
+ PRIMARY KEY (id)
+);
+
+INSERT INTO class_types VALUES
+ (1, 'strength', 'TODO'),
+ (2, 'mind-body', 'TODO'),
+ (3, 'cardio', 'TODO'),
+ (4, 'dance', 'TODO'),
+ (5, 'spin', 'TODO'),
+ (6, 'aoa', 'TODO'),
+ (7, 'aquatic', 'TODO');
 
 CREATE TABLE classes (
  id int(11) NOT NULL AUTO_INCREMENT,
  name VARCHAR(255) DEFAULT NULL,
- description text DEFAULT NULL,
- class_level ENUM('beginner', 'intermediate', 'advanced', 'all') DEFAULT 'all',
- class_type ENUM('strength', 'cardio', 'mind-body', 'dance') DEFAULT 'strength',
+ short_desc text DEFAULT NULL,
+ long_desc text DEFAULT NULL,
  PRIMARY KEY (id)
 );
+
+INSERT INTO classes VALUES
+ (1, 'Body Pump', 'Signature Les Mills strength training program using bars, plates, and the bench', 'TODO'),
+ (2, 'Core Pilates', 'Working on the entire core to improve posture, increase flexibility, and strengthen muscles', 'TODO'),
+ (3, 'Step', 'Choreographed class using platform step and risers', 'TODO');
+
+CREATE TABLE class_with_levels (
+ id int(11) NOT NULL AUTO_INCREMENT,
+ class_id int(11) NOT NULL,
+ level_id int(11) NOT NULL,
+ PRIMARY KEY (id),
+ INDEX (class_id),
+ INDEX (level_id),
+ FOREIGN KEY (class_id)
+  REFERENCES classes(id),
+ FOREIGN KEY (level_id)
+  REFERENCES class_levels(id)
+);
+
+INSERT INTO class_with_levels VALUES
+ (1, 1, 4),
+ (2, 2, 4),
+ (3, 3, 1),
+ (4, 3, 2);
 
 CREATE TABLE instructors (
  id int(11) NOT NULL AUTO_INCREMENT,
