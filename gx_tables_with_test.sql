@@ -69,6 +69,19 @@ INSERT INTO class_with_levels VALUES
  (3, 3, 1),
  (4, 3, 2);
 
+CREATE TABLE class_with_types (
+ id int(11) NOT NULL AUTO_INCREMENT,
+ class_id int(11) NOT NULL,
+ type_id int(11) NOT NULL,
+ PRIMARY KEY (id),
+ INDEX (class_id),
+ INDEX (type_id),
+ FOREIGN KEY (class_id)
+  REFERENCES classes(id),
+ FOREIGN KEY (type_id)
+  REFERENCES class_types(id)
+);
+
 CREATE TABLE instructors (
  id int(11) NOT NULL AUTO_INCREMENT,
  first_name VARCHAR(255) DEFAULT NULL,
