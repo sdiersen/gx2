@@ -3,8 +3,16 @@
 
 	//require_login();
 
+	if(is_post_request()) {
+		$level = [];
+		$level['name'] = $_POST['name'] ?? '';
+		$level['discription'] = $_POST['discription'] ?? '';
 
-	$page_title = 'TODO';
+		$result = insert_class_level($level);
+		
+	}
+
+	$page_title = 'New Class Level';
 
 	include(SHARED_PATH . '/staff_header.php');
 ?>

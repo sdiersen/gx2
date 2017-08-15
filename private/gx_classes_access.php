@@ -176,4 +176,14 @@
 		return find_one($sql);
 	}
 
+	function delete_class_levels($id, $options=[]) {
+		global $db;
+
+		$sql  = "DELETE * FROM class_levels ";
+		$sql .= "WHERE id='" . db_escape($db, $id) . "' ";
+		$sql .= "LIMIT 1";
+
+		return check_query($sql);
+	}
+
 ?>
