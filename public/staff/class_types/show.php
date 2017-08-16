@@ -4,16 +4,16 @@
 	//require_login();
 
 	$id = $_GET['id'] ?? '1';
-	$class_level = find_class_level_by_id($id);
+	$class_type = find_class_type_by_id($id);
 		
-	//$page_title = 'Show Class Level';
+	//$page_title = 'Show Class type';
 
 	include(SHARED_PATH . '/staff_header.php');
 ?>
 
 <div id="content">
 
-	<?php show_record('class_levels', $class_level, $class_level_fields); ?>
+	<?php show_record('class_types', $class_type, $class_type_fields); ?>
 
 </div>
 

@@ -14,14 +14,6 @@
 
 	//classes functions
 
-	function find_all($sql) {
-		global $db;
-
-		$result = mysqli_query($db, $sql);
-		confirm_result_set($result);
-		return $result;
-	}
-
 	function find_one($sql) {
 		global $db;
 
@@ -123,6 +115,58 @@
 		return check_query($sql);
 	}
 
+	function insert_record($table_name, $record, $fields, $options=[]) {
+		global $db;
+
+		$cfields = count($fields);
+		$crecord = count($record);
+
+		if ($cfields == $crecord) {
+			return false;
+		}
+
+		$sql  = "INSERT INTO " . db_escape($db, $table_name) . " ";
+		$sql .= "(";
+		if ($cfields > 1) {
+			//fields includes id, which record does not (not known yet)
+			for($i = 1; $i < ($cfields - 1); $i++) {
+				$sql .= db_escape($db, $fields[$i]) . ", ";
+			}
+		}
+		$sql .= db_escape($db, $fields[($cfields-1)]) . ") ";
+		$sql .= "VALUES (";
+		if ($crecord > 1) {
+			//record will have one less field than fields because it doesn't have id yet
+			for($j = 1; $j < ($crecord); $j++) {
+				$sql .= "'" . db_escape($db, $record[$fields[$j]]) . "', ";
+			}
+		}
+		$sql .= "'" . db_escape($db, $record[$fields[($cfields - 1)]]) . "')";
+
+		return check_query($sql);
+	}
+
+	function delete_record($id, $table_name, $options=[]) {
+		global $db;
+
+		$sql  = "DELETE FROM " . db_escape($db, $table_name) . " ";
+		$sql .= "WHERE id='" . db_escape($db, $id) . "' ";
+		$sql .= "LIMIT 1";
+
+		return check_query($sql);
+	}
+
+	function find_all_records($table_name, $options=[]) {
+		global $db;
+
+		$sql = "SELECT * FROM " . db_escape($db, $table_name);
+
+		$result = mysqli_query($db, $sql);
+		confirm_result_set($result);
+		return $result;
+	}
+
+
 	//Classes
 	function find_all_classes($options=[]) {
 		
@@ -161,13 +205,6 @@
 	}
 
 	//class_levels
-	function find_all_class_levels($options=[]) {
-
-		$sql  = "SELECT * FROM class_levels ";
-
-		return find_all($sql); 
-	}
-
 	function find_class_level_by_id($id, $options=[]) {
 		global $db;
 		$sql  = "SELECT * FROM class_levels ";
@@ -176,14 +213,20 @@
 		return find_one($sql);
 	}
 
-	function delete_class_levels($id, $options=[]) {
+	function insert_class_level($level, $options=[]) {
 		global $db;
 
-		$sql  = "DELETE * FROM class_levels ";
-		$sql .= "WHERE id='" . db_escape($db, $id) . "' ";
-		$sql .= "LIMIT 1";
+		$sql  = "INSERT INTO class_levels ";
+		$sql .= "(name, description) ";
+		$sql .= "VALUES (";
+		$sql .= "'" . db_escape($db, $level['name']) . "', ";
+		$sql .= "'" . db_escape($db, $level['description']) . "'";
+		$sql .= ")";
 
 		return check_query($sql);
 	}
+
+	//class_types
+
 
 ?>

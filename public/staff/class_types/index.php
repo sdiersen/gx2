@@ -3,9 +3,9 @@
 
 	//require_login();
 
-	$level_set = find_all_records('class_levels');
+	$type_set = find_all_records('class_types');
 
-	$page_title = 'Class Levels Index';
+	$page_title = 'Class Types Index';
 
 	include(SHARED_PATH . '/staff_header.php');
 ?>
@@ -13,8 +13,8 @@
 <div id="content">
 
 	<?php 
-		show_index('class_levels', $level_set, $class_level_headings, $class_level_fields); 
-		mysqli_free_result($level_set);
+		show_index('class_types', $type_set, $class_type_headings, $class_type_fields); 
+		mysqli_free_result($type_set);
 	?>
 	
 

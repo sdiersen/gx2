@@ -9,7 +9,7 @@
 	$id = $_GET['id'];
 
 	if(is_post_request()) {
-		$result = delete_class_levels($id);
+		$result = delete_record($id, 'class_levels');
 		redirect_to(url_for('/staff/class_levels/index.php'));
 	} else {
 		$level = find_class_level_by_id($id);

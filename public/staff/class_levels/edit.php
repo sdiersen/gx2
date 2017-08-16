@@ -15,7 +15,7 @@
 		$level['description'] = $_POST['description'] ?? '';
 
 		$result = update_record('class_levels', $level, $class_level_fields);
-		redirect_to(url_for('/staff/class_levels/show.php?=' . $id));
+		redirect_to(url_for('/staff/class_levels/show.php?id=' . $id));
 	} else {
 		$level = find_class_level_by_id($id);
 	}
@@ -38,7 +38,7 @@
 			</dl>
 			<dl>
 				<dt>Description: </dt>
-				<dd><input type="text" name="description" value="<?php echo h($level['description']); ?>" /></dd>
+				<dd><textarea name="description" cols="60" rows="10"><?php echo h($level['description']); ?></textarea></dd>
 			</dl>
 			<div id="operations">
 				<input type="submit" value="Edit Subject" />
