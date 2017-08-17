@@ -1,12 +1,14 @@
 DROP TABLE IF EXISTS scheduled_classes;
-DROP TABLE IF EXISTS rooms;
+DROP TABLE IF EXISTS class_with_types;
+DROP TABLE IF EXISTS class_with_levels;
 DROP TABLE IF EXISTS classes;
+DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS instructors;
 DROP TABLE IF EXISTS locations;
 DROP TABLE IF EXISTS class_levels;
 DROP TABLE IF EXISTS class_types;
-DROP TABLE IF EXISTS class_with_types;
-DROP TABLE IF EXISTS class_with_levels;
+
+
 
 CREATE TABLE class_levels (
  id int(11) NOT NULL AUTO_INCREMENT,
@@ -42,13 +44,16 @@ CREATE TABLE classes (
  name VARCHAR(255) DEFAULT NULL,
  short_desc text DEFAULT NULL,
  long_desc text DEFAULT NULL,
+ duration int(11) DEFAULT NULL,
  PRIMARY KEY (id)
 );
 
 INSERT INTO classes VALUES
- (1, 'Body Pump', 'Signature Les Mills strength training program using bars, plates, and the bench', 'TODO'),
- (2, 'Core Pilates', 'Working on the entire core to improve posture, increase flexibility, and strengthen muscles', 'TODO'),
- (3, 'Step', 'Choreographed class using platform step and risers', 'TODO');
+ (1, 'Body Pump', 'Signature Les Mills strength training program using bars, plates, and the bench', 'TODO', 0),
+ (2, 'Core Pilates', 'Working on the entire core to improve posture, increase flexibility, and strengthen muscles', 'TODO', 0),
+ (3, 'Step', 'Choreographed class using platform step and risers', 'TODO', 0),
+ (4, 'Core X', '30 minute class focusing solely on strengthening your core with a bit more', 'TODO', 0),
+ (5, 'TBC', 'Total body Conditioning. Free Style class focusing on cario and strength for your entire body.', 'TODO', 0);
 
 CREATE TABLE class_with_levels (
  id int(11) NOT NULL AUTO_INCREMENT,
@@ -67,7 +72,10 @@ INSERT INTO class_with_levels VALUES
  (1, 1, 4),
  (2, 2, 4),
  (3, 3, 1),
- (4, 3, 2);
+ (4, 3, 2),
+ (5, 4, 4),
+ (6, 5, 2),
+ (7, 5, 3);
 
 CREATE TABLE class_with_types (
  id int(11) NOT NULL AUTO_INCREMENT,
@@ -81,6 +89,13 @@ CREATE TABLE class_with_types (
  FOREIGN KEY (type_id)
   REFERENCES class_types(id)
 );
+
+INSERT INTO class_with_types VALUES
+ (1, 1, 1),
+ (2, 2, 2),
+ (3, 3, 3),
+ (4, 4, 1),
+ (5, 5, 1);
 
 CREATE TABLE instructors (
  id int(11) NOT NULL AUTO_INCREMENT,
@@ -119,11 +134,9 @@ CREATE TABLE scheduled_classes (
  instructor_id int(11) NOT NULL,
  location_id int(11) NOT NULL,
  room_id int(11) NOT NULL,
- day ENUM('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') DEFAULT NULL,
  start_date DATE DEFAULT NULL,
  end_date DATE DEFAULT NULL,
  start_time TIME DEFAULT NULL,
- end_time TIME DEFAULT NULL,
  PRIMARY KEY (ID),
  INDEX (class_id),
  INDEX (instructor_id),

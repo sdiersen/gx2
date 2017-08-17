@@ -17,7 +17,7 @@
 		$result = update_record('class_types', $type, $class_type_fields);
 		redirect_to(url_for('/staff/class_types/show.php?=' . $id));
 	} else {
-		$type = find_class_type_by_id($id);
+		$type = find_record_by_id('class_types', $id);
 	}
 
 	$page_title = 'Edit Class type';

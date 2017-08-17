@@ -4,7 +4,7 @@
 	//require_login();
 
 	$id = $_GET['id'] ?? '1';
-	$class_type = find_class_type_by_id($id);
+	$class_type = find_record_by_id('class_types', $id);
 		
 	//$page_title = 'Show Class type';
 

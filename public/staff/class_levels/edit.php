@@ -17,7 +17,7 @@
 		$result = update_record('class_levels', $level, $class_level_fields);
 		redirect_to(url_for('/staff/class_levels/show.php?id=' . $id));
 	} else {
-		$level = find_class_level_by_id($id);
+		$level = find_record_by_id('class_levels', $id);
 	}
 
 	$page_title = 'Edit Class Level';

@@ -9,10 +9,10 @@
 	$id = $_GET['id'];
 
 	if(is_post_request()) {
-		$result = delete_record($id, 'class_types');
+		$result = delete_record('class_types', $id);
 		redirect_to(url_for('/staff/class_types/index.php'));
 	} else {
-		$type = find_class_type_by_id($id);
+		$type = find_record_by_id('class_types', $id);
 	}
 
 	$page_title = 'Delete Class Type';

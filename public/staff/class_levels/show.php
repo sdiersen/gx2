@@ -4,7 +4,7 @@
 	//require_login();
 
 	$id = $_GET['id'] ?? '1';
-	$class_level = find_class_level_by_id($id);
+	$class_level = find_record_by_id('class_levels', $id);
 		
 	//$page_title = 'Show Class Level';
 

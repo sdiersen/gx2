@@ -8,7 +8,7 @@
 		$type['name'] = $_POST['name'] ?? '';
 		$type['description'] = $_POST['description'] ?? '';
 
-		$result = insert_class_type($type);
+		$result = insert_record('class_types', $type, $class_type_fields);
 		if ($result) {
 			$new_id = mysqli_insert_id($db);
 			redirect_to(url_for('/staff/class_types/show.php?id=' . $new_id));

@@ -15,8 +15,7 @@
 	<?php 
 		show_index('class_levels', $level_set, $class_level_headings, $class_level_fields); 
 		mysqli_free_result($level_set);
-	?>
-	
+	?>	
 
 </div>
 

@@ -11,6 +11,11 @@
 	$class_level_fields = ['id', 'name', 'description'];
 	$class_type_headings = ['Class Type', 'ID', 'Type', 'Description'];
 	$class_type_fields = ['id', 'name', 'description'];
+	$classes_headings = ['Classes', 'ID', 'Name', 'Short Description', 'Long Description', 'Duration'];
+	$classes_fields = ['id', 'name', 'short_desc', 'long_desc', 'duration'];
+
+	//DAYNAME(date) returns the day of the week for the date given
+	//use as SELECT DAYNAME('1-1-2017');
 
 	//classes functions
 
@@ -146,7 +151,7 @@
 		return check_query($sql);
 	}
 
-	function delete_record($id, $table_name, $options=[]) {
+	function delete_record($table_name, $id, $options=[]) {
 		global $db;
 
 		$sql  = "DELETE FROM " . db_escape($db, $table_name) . " ";
@@ -161,9 +166,22 @@
 
 		$sql = "SELECT * FROM " . db_escape($db, $table_name);
 
+		if(isset($options['sort_by'])) {
+			$sql .= $options['sort_by'];
+		}
+
 		$result = mysqli_query($db, $sql);
 		confirm_result_set($result);
 		return $result;
+	}
+
+	function find_record_by_id($table_name, $id, $options=[]) {
+		global $db;
+
+		$sql  = "SELECT * FROM " . db_escape($db, $table_name) . " ";
+		$sql .= "WHERE id='" . db_escape($db, $id) . "'";
+
+		return find_one($sql);
 	}
 
 
@@ -204,29 +222,22 @@
 		return find_all($sql);
 	}
 
-	//class_levels
-	function find_class_level_by_id($id, $options=[]) {
-		global $db;
-		$sql  = "SELECT * FROM class_levels ";
-		$sql .= "WHERE id='" . db_escape($db, $id) . "'";
-
-		return find_one($sql);
-	}
-
-	function insert_class_level($level, $options=[]) {
+	function classes_index($options=[]) {
 		global $db;
 
-		$sql  = "INSERT INTO class_levels ";
-		$sql .= "(name, description) ";
-		$sql .= "VALUES (";
-		$sql .= "'" . db_escape($db, $level['name']) . "', ";
-		$sql .= "'" . db_escape($db, $level['description']) . "'";
-		$sql .= ")";
+		//search through classes_with_types, sorting by classes_types.name ASC and classes.name ASC 
+		//which are gotten from classes_with_types.types_id and classes_with_types.class_id
 
-		return check_query($sql);
+		$sql  = "SELECT class_types.name AS type_name, classes.name AS class_name ";
+		$sql .= "FROM class_with_types, classes, class_types ";
+		$sql .= "WHERE class_with_types.type_id = class_types.id ";
+		$sql .= "AND class_with_types.class_id = classes.id ";
+		$sql .= "ORDER BY class_types.name ASC, classes.name ASC";
+
+		echo $sql;
+
+		$result = mysqli_query($db, $sql);
+		confirm_result_set($result);
+		return $result;
 	}
-
-	//class_types
-
-
 ?>
