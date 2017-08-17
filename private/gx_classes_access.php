@@ -37,7 +37,6 @@
 			return true;
 		} else {
 			echo mysqli_error($db);
-			echo $sql;
 			db_disconnect($db);
 			exit;
 		}
@@ -228,13 +227,11 @@
 		//search through classes_with_types, sorting by classes_types.name ASC and classes.name ASC 
 		//which are gotten from classes_with_types.types_id and classes_with_types.class_id
 
-		$sql  = "SELECT class_types.name AS type_name, classes.name AS class_name ";
+		$sql  = "SELECT class_types.name AS type_name, classes.name AS class_name, classes.id AS class_id, classes.short_desc AS description ";
 		$sql .= "FROM class_with_types, classes, class_types ";
 		$sql .= "WHERE class_with_types.type_id = class_types.id ";
 		$sql .= "AND class_with_types.class_id = classes.id ";
 		$sql .= "ORDER BY class_types.name ASC, classes.name ASC";
-
-		echo $sql;
 
 		$result = mysqli_query($db, $sql);
 		confirm_result_set($result);
