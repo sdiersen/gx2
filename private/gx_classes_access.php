@@ -13,7 +13,8 @@
 	$class_type_fields = ['id', 'name', 'description'];
 	$classes_headings = ['Classes', 'ID', 'Name', 'Short Description', 'Long Description', 'Duration'];
 	$classes_fields = ['id', 'name', 'short_desc', 'long_desc', 'duration'];
-
+	$class_with_levels_fields = ['id', 'class_id', 'level_id'];
+	$class_with_types_fields = ['id', 'class_id', 'type_id'];
 	//DAYNAME(date) returns the day of the week for the date given
 	//use as SELECT DAYNAME('1-1-2017');
 
@@ -146,7 +147,7 @@
 			}
 		}
 		$sql .= "'" . db_escape($db, $record[$fields[($cfields - 1)]]) . "')";
-
+		echo $sql;
 		return check_query($sql);
 	}
 
@@ -213,7 +214,7 @@
 
 	function find_classes_with_levels($options=[]) {
 		
-		$sql  = "SELECT classes.name, class_level.name ";
+		$sql  = "SELECT classes.name, class_levels.name ";
 		$sql .= "FROM classes, class_levels, class_with_levels ";
 		$sql .= "WHERE classes.id = class_with_levels.class_id ";
 		$sql .= "AND class_levels.id = class_with_levels.level_id";
@@ -231,7 +232,37 @@
 		$sql .= "FROM class_with_types, classes, class_types ";
 		$sql .= "WHERE class_with_types.type_id = class_types.id ";
 		$sql .= "AND class_with_types.class_id = classes.id ";
-		$sql .= "ORDER BY class_types.name ASC, classes.name ASC";
+		if (isset($options['sort'])) {
+			$sql .= db_escape($db, $options['sort']);
+		} else {
+			$sql .= "ORDER BY class_types.name ASC, classes.name ASC";
+		}
+
+		$result = mysqli_query($db, $sql);
+		confirm_result_set($result);
+		return $result;
+	}
+
+	function get_all_class_levels($id, $options=[]){
+		global $db;
+
+		$sql  = "SELECT class_levels.name AS name ";
+		$sql .= "FROM class_levels, class_with_levels ";
+		$sql .= "WHERE class_with_levels.class_id ='" . db_escape($db, $id) . "' ";
+		$sql .= "AND class_with_levels.level_id = class_levels.id";
+
+		$result = mysqli_query($db, $sql);
+		confirm_result_set($result);
+		return $result;
+	}
+
+	function get_all_class_types($id, $options=[]) {
+		global $db;
+
+		$sql  = "SELECT class_types.name AS name ";
+		$sql .= "FROM class_types, class_with_types ";
+		$sql .= "WHERE class_with_types.class_id ='" . db_escape($db, $id) . "' ";
+		$sql .= "AND class_with_types.type_id = class_types.id";
 
 		$result = mysqli_query($db, $sql);
 		confirm_result_set($result);

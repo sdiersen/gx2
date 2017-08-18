@@ -4,9 +4,46 @@
 
 	//require_login();
 
-	$class_set = classes_index();
+	$options = [];
+	$options['sort'] = "ORDER BY class_types.name ASC, classes.name ASC";
+	if(is_post_request()) {
+		if(isset($_POST['sortType'])) {
+			if ($_POST['sortType'] == 'Name') {
+				$options['sort'] = "ORDER BY classes.name ASC";
+			} elseif ($_POST['sortType'] == 'ID') {
+				$options['sort'] = "ORDER BY classes.id ASC";
+			}
+		}
+	}
+
+	$class_set = classes_index($options);
 
 	$page_title = 'GX Classes - Index';
+
+	function showRow($row){
+		echo "<tr>";
+		echo "<td>" . h($row['class_id']) . "</td>";
+		echo "<td>" . h($row['class_name']) . "</td>";
+		echo "<td>" . h($row['type_name']) . "</td>";
+		echo "<td>" . h($row['description']) . "</td>";
+		echo "<td><a class=\"action\" href=\"" . url_for('/staff/classes/show.php?id=' . u(h($row['class_id']))) . "\">View</a></td>";
+		echo "<td><a class=\"action\" href=\"" . url_for('/staff/classes/edit.php?id=' . u(h($row['class_id']))) . "\">Edit</a></td>";
+		echo "<td><a class=\"action\" href=\"" . url_for('/staff/classes/delete.php?id=' . u(h($row['class_id']))) . "\">Delete</a></td>";
+		echo "</tr>";
+	}
+	function showHead() {
+		echo "<tr>";
+		echo "<form" . url_for('/staff/classes/index.php') . "\" method=\"post\">";
+		echo "<th><input type=\"submit\" name=\"sortType\" value=\"ID\" /></th>";
+		echo "<th><input type=\"submit\" name=\"sortType\" value=\"Name\" /></th>";
+		echo "<th><input type=\"submit\" name=\"sortType\" value=\"Type\" /></th>";
+		echo "</form>";
+		echo "<th>Description</th>";
+		echo "<th>&nbsp;</th>";
+		echo "<th>&nbsp;</th>";
+		echo "<th>&nbsp;</th>";
+		echo "<tr>";
+	}
 
 	include(SHARED_PATH . '/staff_header.php');
 
@@ -20,41 +57,13 @@
 		<div class="actions">
 			<p><a class="action" href="<?php echo url_for('/staff/classes/new.php'); ?>">Create New Class</a></p>
 		</div>
-		<?php $theType = ''; ?>
+			
 		<table class="list">
-			<?php while($class = mysqli_fetch_assoc($class_set)) { 
-				if($theType != $class['type_name']) { 
-					$theType = $class['type_name']; ?>
-					<tr colspan="6">
-						<td class="rowH2"><?php echo h($class['type_name']); ?></td>
-					</tr>
-					<tr>
-						<th>ID</th>
-						<th>Name</th>
-						<th>Description</th>
-						<th>&nbsp;</th>
-						<th>&nbsp;</th>
-						<th>&nbsp;</th>
-					</tr>
-					<tr>
-						<td><?php echo h($class['class_id']); ?></td>
-						<td><?php echo h($class['class_name']); ?></td>
-						<td><?php echo h($class['description']); ?></td>
-						<td><a class="action" href="<?php echo url_for('/staff/classes/show.php?id=' . u(h($class['class_id']))); ?>">View</a></td>
-						<td><a class="action" href="<?php echo url_for('/staff/classes/edit.php?id=' . u(h($class['class_id']))); ?>">Edit</a></td>
-						<td><a class="action" href="<?php echo url_for('/staff/classes/delete.php?id=' . u(h($class['class_id']))); ?>">Delete</a></td>
-					</tr>
-				<?php } else { ?>
-					<tr>
-						<td><?php echo h($class['class_id']); ?></td>
-						<td><?php echo h($class['class_name']); ?></td>
-						<td><?php echo h($class['description']); ?></td>
-						<td><a class="action" href="<?php echo url_for('/staff/classes/show.php?id=' . u(h($class['class_id']))); ?>">View</a></td>
-						<td><a class="action" href="<?php echo url_for('/staff/classes/edit.php?id=' . u(h($class['class_id']))); ?>">Edit</a></td>
-						<td><a class="action" href="<?php echo url_for('/staff/classes/delete.php?id=' . u(h($class['class_id']))); ?>">Delete</a></td>
-					</tr>
-				<?php } ?>
-			<?php } ?>
+			<?php 
+			showHead();	 
+			while($class = mysqli_fetch_assoc($class_set)) { 
+				showRow($class); 
+		 	} ?>
 		</table>
 	</div>
 
