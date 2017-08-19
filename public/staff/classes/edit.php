@@ -8,9 +8,12 @@
 	}
 
 	$id = $_GET['id'];
-	$levels = find_all_records('class_levels');
-	$types = find_all_records('class_types');
-	$checked_levels = get_all_class_levels($id);
+	$options = [];
+	$options['order'] = "ORDER BY id ASC ";
+	$levels = find_all_records('class_levels', $options);
+	$types = find_all_records('class_types', $options);
+	$checked_levels = get_all_class_levels_by_id($id);
+	$checked_types = get_all_class_types_by_id($id);
 
 	if(is_post_request()) {
 
@@ -37,9 +40,17 @@
 			<dl>
 				<dt>Type: </dt>
 				<dd class="inLineCheck">
-					<?php while($typ = mysqli_fetch_assoc($types)) {
+					<?php 
+					$checked_t = mysqli_fetch_assoc($checked_types);
+					while($typ = mysqli_fetch_assoc($types)) {
 						echo "<div>";
-						echo "<input type=\"checkbox\" id=\"" . $typ['name'] . "\" name=\"" . $typ['name'] . "\" value=\"" . $typ['id'] . "\">";
+						echo "<input type=\"checkbox\" id=\"" . $typ['name'] . "\" name=\"" . $typ['name'] . "\" value=\"" . $typ['id'] . "\"";
+						if(!is_null($checked_t) && $typ['id'] == $checked_t['id']) {
+							echo " checked>";
+							$checked_t = mysqli_fetch_assoc($checked_types);
+						} else {
+							echo ">";
+						}
 						echo "<label for\"" . $typ['name'] . "\">" . $typ['name'] . "</label>";
 					} ?>					
 				</dd>
@@ -47,15 +58,17 @@
 			<dl>
 				<dt>Level: </dt>
 				<dd class="inLineCheck">
-					<?php while($lvl = mysqli_fetch_assoc($levels)) {
+					<?php 
+					$checked_l = mysqli_fetch_assoc($checked_levels);
+					while($lvl = mysqli_fetch_assoc($levels)) {
 						echo "<div>";
 						echo "<input type=\"checkbox\" id=\"" . $lvl['name'] . "\" name=\"" . $lvl['name'] . "\" value=\"" . $lvl['id'] . "\"";
-						while($check_level = mysqli_fetch_assoc($checked_levels)){
-							if($check_level['name'] == $lvl['name']) {
-								echo " checked";
-							}
+						if(!is_null($checked_l) && $lvl['id'] == $checked_l['id']) {
+							echo " checked>";
+							$checked_l = mysqli_fetch_assoc($checked_levels);
+						} else {
+							echo ">";
 						}
-						echo ">";
 						echo "<label for=\"" . $lvl['name'] . "\">" . $lvl['name'] . "</label>";
 					} ?>					
 				</dd>

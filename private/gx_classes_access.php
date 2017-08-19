@@ -170,6 +170,7 @@
 			$sql .= $options['sort_by'];
 		}
 
+
 		$result = mysqli_query($db, $sql);
 		confirm_result_set($result);
 		return $result;
@@ -262,7 +263,35 @@
 		$sql  = "SELECT class_types.name AS name ";
 		$sql .= "FROM class_types, class_with_types ";
 		$sql .= "WHERE class_with_types.class_id ='" . db_escape($db, $id) . "' ";
-		$sql .= "AND class_with_types.type_id = class_types.id";
+		$sql .= "AND class_with_types.type_id = class_types.id ";
+		
+		$result = mysqli_query($db, $sql);
+		confirm_result_set($result);
+		return $result;
+	}
+
+	function get_all_class_levels_by_id($id, $options=[]) {
+		global $db;
+
+		$sql  = "SELECT class_levels.id AS id ";
+		$sql .= "FROM class_levels, class_with_levels ";
+		$sql .= "WHERE class_with_levels.class_id ='" .db_escape($db, $id) . "' ";
+		$sql .= "AND class_with_levels.level_id = class_levels.id ";
+		$sql .= "ORDER BY class_levels.id ASC ";
+
+		$result = mysqli_query($db, $sql);
+		confirm_result_set($result);
+		return $result;
+	}
+
+	function get_all_class_types_by_id($id, $options=[]) {
+		global $db;
+
+		$sql  = "SELECT class_types.id AS id ";
+		$sql .= "FROM class_types, class_with_types ";
+		$sql .= "WHERE class_with_types.class_id ='" . db_escape($db, $id) . "' ";
+		$sql .= "AND class_with_types.type_id = class_types.id ";
+		$sql .= "ORDER BY class_types.id ASC ";
 
 		$result = mysqli_query($db, $sql);
 		confirm_result_set($result);
