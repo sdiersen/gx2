@@ -52,4 +52,8 @@
 	</div>
 </div>
 
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php 
+	include(SHARED_PATH . '/staff_footer.php'); 
+	mysqli_free_result($levels);
+	mysqli_free_result($types);
+?>

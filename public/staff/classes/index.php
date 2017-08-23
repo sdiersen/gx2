@@ -33,7 +33,7 @@
 	}
 	function showHead() {
 		echo "<tr>";
-		echo "<form" . url_for('/staff/classes/index.php') . "\" method=\"post\">";
+		echo "<form action=\"" . url_for('/staff/classes/index.php') . "\" method=\"post\">";
 		echo "<th><input type=\"submit\" name=\"sortType\" value=\"ID\" /></th>";
 		echo "<th><input type=\"submit\" name=\"sortType\" value=\"Name\" /></th>";
 		echo "<th><input type=\"submit\" name=\"sortType\" value=\"Type\" /></th>";
@@ -70,4 +70,7 @@
 
 </div>
 
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php 
+	mysqli_free_result($class_set);
+	include(SHARED_PATH . '/staff_footer.php'); 
+?>

@@ -63,9 +63,11 @@ CREATE TABLE class_with_levels (
  INDEX (class_id),
  INDEX (level_id),
  FOREIGN KEY (class_id)
-  REFERENCES classes(id),
+  REFERENCES classes(id)
+  ON DELETE CASCADE,
  FOREIGN KEY (level_id)
   REFERENCES class_levels(id)
+  ON DELETE CASCADE
 );
 
 INSERT INTO class_with_levels VALUES
@@ -85,9 +87,11 @@ CREATE TABLE class_with_types (
  INDEX (class_id),
  INDEX (type_id),
  FOREIGN KEY (class_id)
-  REFERENCES classes(id),
+  REFERENCES classes(id)
+  ON DELETE CASCADE,
  FOREIGN KEY (type_id)
   REFERENCES class_types(id)
+  ON DELETE CASCADE
 );
 
 INSERT INTO class_with_types VALUES
@@ -106,6 +110,11 @@ CREATE TABLE instructors (
  secondary_phone VARCHAR(14) DEFAULT NULL,
  PRIMARY KEY (id)
 );
+
+INSERT INTO instructors VALUES
+ (1, 'Tami', 'Metcalf', 'tmet@fitevomn.com', '1-763-337-1111', '1-763-337-1111'),
+ (2, 'Geneva', 'Marie', 'gmar@fitevomn.com', '1-763-412-1111', '1-763-444-4444'),
+ (3, 'Kevin', 'Bame', 'kbam@fluffybunny.com', '1-800-777-1234', '1-222-333-5555');
 
 CREATE TABLE locations (
  id int(11) NOT NULL AUTO_INCREMENT,
@@ -126,6 +135,7 @@ CREATE TABLE rooms (
  PRIMARY KEY (id),
  FOREIGN KEY (location_id)
   REFERENCES locations(id)
+  ON DELETE CASCADE
 );
 
 CREATE TABLE scheduled_classes (
@@ -142,9 +152,11 @@ CREATE TABLE scheduled_classes (
  INDEX (instructor_id),
  INDEX (location_id),
  FOREIGN KEY (class_id)
-  REFERENCES classes(id),
+  REFERENCES classes(id)
+  ON DELETE CASCADE,
  FOREIGN KEY (instructor_id)
   REFERENCES instructors(id),
  FOREIGN KEY (location_id)
   REFERENCES locations(id)
+  ON DELETE CASCADE
 );

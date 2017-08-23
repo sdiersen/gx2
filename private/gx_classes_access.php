@@ -164,12 +164,11 @@
 	function find_all_records($table_name, $options=[]) {
 		global $db;
 
-		$sql = "SELECT * FROM " . db_escape($db, $table_name);
+		$sql = "SELECT * FROM " . db_escape($db, $table_name) . " ";
 
 		if(isset($options['sort_by'])) {
 			$sql .= $options['sort_by'];
 		}
-
 
 		$result = mysqli_query($db, $sql);
 		confirm_result_set($result);
