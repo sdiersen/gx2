@@ -2,39 +2,63 @@
 	require_once('../../../private/initialize.php');
 
 	//require_login();
-	$levels = find_all_records('class_levels');
-	$types = find_all_records('class_types');
-
+	
+	$class = [];
+		
 	if(is_post_request()) { //user has submitted a new class
-		$class = [];
-		$class_type = [];
-		$class_level = [];
 
+		//make sure there is at least one level
+		if(empty($_POST['level_checked'])) {
+			$errors[] = 'Must have at least 1 level checked';
+		}
+
+		//make sure there is at least one type
+		if(empty($_POST['type_checked'])) {
+			$errors[] = 'Must have at least 1 type checked';
+		}
+		
+		//create the class
 		$class['name'] = $_POST['name'] ?? '';
 		$class['short_desc'] = $_POST['short_desc'] ?? '';
 		$class['long_desc'] = $_POST['long_desc'] ?? '';
 		$class['duration'] = $_POST['duration'] ?? '';
 
-		insert_record('classes', $class, $classes_fields);
+		//If there are any errors from the type and level then check for errors in the class
+		if(!empty($errors)){
+			$result = validate_classes($class);
+			foreach($result as $error) {
+				$errors[] = $error;
+			}
+		} else { //since there are no errors in level and type try to create the record
+			$result = insert_record('classes', $class, $classes_fields);
 
-		$class['id'] = mysqli_insert_id($db);
-
-		$class_level['class_id'] = $class['id'];
-		while($l = mysqli_fetch_assoc($levels)) {
-			if(isset($_POST[$l['name']])) {
-				$class_level['level_id'] = $_POST[$l['name']];
+			if($result === true) { //record created save the id for later use
+				$class['id'] = mysqli_insert_id($db);
+			} else { //errors in the class, add them to the array to show
+				foreach($result as $error) {
+					$errors[] = $error;
+				}
+			}		
+		}
+		//Check once more for errors that have happened
+		if(empty($errors)) { //No errors: insert records into class_with_levels and class_with_types
+			$class_level = [];
+			$class_level['class_id'] = $class['id'];
+			foreach($_POST['level_checked'] as $lvl) {
+				$class_level['level_id'] = $lvl;
 				insert_record('class_with_levels', $class_level, $class_with_levels_fields);
 			}
-		}
-		$class_type['class_id'] = $class['id'];
-		while($t = mysqli_fetch_assoc($types)) {
-			if(isset($_POST[$t['name']])) {
-				$class_type['type_id'] = $_POST[$t['name']];
+			$class_type = [];
+			$class_type['class_id'] = $class['id'];
+			foreach($_POST['type_checked'] as $typ) {
+				$class_type['type_id'] = $typ;
 				insert_record('class_with_types', $class_type, $class_with_types_fields);
 			}
+
+			redirect_to(url_for('/staff/classes/show.php?id=' . $class['id']));
 		}
 
-		redirect_to(url_for('/staff/classes/show.php?id=' . $class['id']));
+		
 
 	} else { //user is getting to this page for the first time, initialize variables
 		$class = [];
@@ -52,6 +76,41 @@
 		$class_level['name'] = '';
 
 
+	}
+	
+
+	function show_types() {
+		$types = find_all_records('class_types');
+		$ids = $_POST['type_checked'] ?? [];
+		$id = array_shift($ids);
+		echo "<div>";
+		while($typ = mysqli_fetch_assoc($types)) {
+			echo "<input type=\"checkbox\" name=\"type_checked[]\" value=\"" . $typ['id'] . "\" ";
+			if(!is_null($id) && $typ['id'] == $id) {
+				echo "checked >";
+				$id = array_shift($ids);
+			}
+			echo "<label>" . $typ['name'] . "</label>";
+		}
+		echo "</div>";
+		mysqli_free_result($types);
+	}
+
+	function show_levels() {
+		$levels = find_all_records('class_levels');
+		$ids = $_POST['level_checked'] ?? [];
+		$id = array_shift($ids);
+		echo "<div>";
+		while($lev = mysqli_fetch_assoc($levels)) {
+			echo "<input type=\"checkbox\" name=\"level_checked[]\" value=\"" . $lev['id'] . "\" ";
+			if(!is_null($id) && $lev['id'] == $id) {
+				echo "checked >";
+				$id = array_shift($ids);
+			}
+			echo "<label>" . $lev['name'] . "</label>";
+		}
+		echo "</div>";
+		mysqli_free_result($levels);
 	}
 
 	// process this part everytime the page is entered
@@ -73,21 +132,13 @@
 			<dl>
 				<dt>Type: </dt>
 				<dd class="inLineCheck">
-					<?php while($typ = mysqli_fetch_assoc($types)) {
-						echo "<div>";
-						echo "<input type=\"checkbox\" id=\"" . $typ['name'] . "\" name=\"" . $typ['name'] . "\" value=\"" . $typ['id'] . "\">";
-						echo "<label for\"" . $typ['name'] . "\">" . $typ['name'] . "</label>";
-					} ?>					
+					<?php show_types(); ?>					
 				</dd>
 			</dl>
 			<dl>
 				<dt>Level: </dt>
 				<dd class="inLineCheck">
-					<?php while($lvl = mysqli_fetch_assoc($levels)) {
-						echo "<div>";
-						echo "<input type=\"checkbox\" id=\"" . $lvl['name'] . "\" name=\"" . $lvl['name'] . "\" value=\"" . $lvl['id'] . "\">";
-						echo "<label for\"" . $lvl['name'] . "\">" . $lvl['name'] . "</label>";
-					} ?>					
+					<?php show_levels(); ?>					
 				</dd>
 			</dl>
 			<dl>

@@ -15,6 +15,7 @@
 	$classes_fields = ['id', 'name', 'short_desc', 'long_desc', 'duration'];
 	$class_with_levels_fields = ['id', 'class_id', 'level_id'];
 	$class_with_types_fields = ['id', 'class_id', 'type_id'];
+	$instructors_fields = ['id', 'first_name', 'last_name', 'email', 'primary_phone', 'secondary_phone'];
 	//DAYNAME(date) returns the day of the week for the date given
 	//use as SELECT DAYNAME('1-1-2017');
 
@@ -106,6 +107,11 @@
 		
 		global $db;
 
+		$errors = validate($table_name, $record);
+		if(!empty($errors)) {
+			return $errors;
+		}
+
 		$count = count($fields);
 
 		$sql  = "UPDATE " . db_escape($db, $table_name) . " SET ";
@@ -123,13 +129,17 @@
 	function insert_record($table_name, $record, $fields, $options=[]) {
 		global $db;
 
+		$errors = validate($table_name, $record);
+		if(!empty($errors)) {
+			return $errors;
+		}
+
 		$cfields = count($fields);
 		$crecord = count($record);
 
 		if ($cfields == $crecord) {
 			return false;
 		}
-
 		$sql  = "INSERT INTO " . db_escape($db, $table_name) . " ";
 		$sql .= "(";
 		if ($cfields > 1) {
@@ -182,6 +192,28 @@
 		$sql .= "WHERE id='" . db_escape($db, $id) . "'";
 
 		return find_one($sql);
+	}
+
+	function find_class_with_levels_id($record, $options=[]) {
+		global $db;
+
+		$sql  = "SELECT id FROM class_with_levels ";
+		$sql .= "WHERE class_id='" . db_escape($db, $record['class_id']) . "' ";
+		$sql .= "AND level_id='" . db_escape($db, $record['level_id']) . "' ";
+		$sql .= "LIMIT 1";
+
+		return find_one($sql);
+	}
+
+	function find_class_with_types_id($record, $options=[]) {
+		global $db;
+
+		$sql  = "SELECT id FROM class_with_types ";
+		$sql .= "WHERE class_id='" . db_escape($db, $record['class_id']) . "' ";
+		$sql .= "AND type_id='" . db_escape($db, $record['type_id']) . "' ";
+		$sql .= "LIMIT 1";
+
+		return find_one($sql);		
 	}
 
 
@@ -295,5 +327,58 @@
 		$result = mysqli_query($db, $sql);
 		confirm_result_set($result);
 		return $result;
+	}
+
+	//Validation
+	function validate($table_name, $record) {
+		switch ($table_name) {
+			case 'instructors':
+				return validate_instructors($record);
+				break;
+			case 'classes':
+				return validate_classes($record);
+				break;
+		}
+	}
+
+	function validate_instructors($instructor) {
+		$errors = [];
+
+		if(!has_valid_phone_number($instructor['primary_phone'])) {
+			$errors[] = 'Invalid Primary Phone Number: acceptable formats are 1112223333 or 111-222-3333';
+		}
+
+		if(!has_valid_phone_number($instructor['secondary_phone'])) {
+			$errors[] = 'Invalid Secondary Phone Number';
+		}
+
+		if(!has_valid_email_format($instructor['email'])) {
+			$errors[] = 'Invalid Email Format';
+		}
+		return $errors;
+	}
+
+	function validate_classes($class) {
+		$errors = [];
+
+		if(is_blank($class['name'])) {
+			$errors[] = 'Class must have a name.';
+		} elseif(!has_length_less_than($class['name'], 255)) {
+			$errors[] = 'Class name must be less than 255 characters.';
+		}
+
+		if(is_blank($class['short_desc'])) {
+			$errors[] = 'Class must have a short description';
+		}
+
+		if(is_blank($class['long_desc'])) {
+			$errors[] = 'Class must have a long description';
+		}
+
+		if(is_blank($class['duration'])) {
+			$errors[] = 'Class needs to have a duration';
+		}
+
+		return $errors;
 	}
 ?>

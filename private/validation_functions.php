@@ -47,8 +47,38 @@
 	}
 
 	function has_valid_email_format($value) {
-		$email_regex = '/\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\Z/i';
+		//$email_regex = '/\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\Z/i';
+		$email_regex = '/\A[a-zA-Z0-9!#$%&\'\*\+\-\/=\^_`{|}~\;]+@[a-zA-Z0-9]{1}[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9]{1}\.[a-zA-Z]{2,3}\z/';
 		return preg_match($email_regex, $value) === 1;
+	}
+
+	function has_valid_phone_number($value) {
+		//$phone_regex_1 = '/\(\d{3}\) \d{3}-\d{4}/';
+		$phone_regex = '/\d{3}-\d{3}-\d{4}/';
+		return has_length_exactly($value, 12) && (preg_match($phone_regex, $value) === 1);
+	}
+
+	function has_valid_phone_digits($value) {
+		return has_length_exactly($value,10) && (preg_match('/\d{10}/',$value) === 1);
+	}
+
+	//convert any valid phone number format (for America) to a xxx-xxx-xxxx format
+	function convert_phone($value) {
+		//remove the 1- for american numbers
+		if(0 === strpos($value, '1-')) {
+			$value = substr($value, 2);
+		}
+		//remove what would be in some numbers (xxx), spaces, and - 
+		$value = str_replace('(', '', $value);
+		$value = str_replace(')', '', $value);
+		$value = str_replace(' ', '', $value);
+		$value = str_replace('-', '', $value);
+		
+		if(has_valid_phone_digits($value)) {
+			$value = substr_replace($value, '-', 3, 0);
+			$value = substr_replace($value, '-', 7, 0);
+		}
+		return $value;
 	}
 
 	function has_lowercase_letters($string) {
